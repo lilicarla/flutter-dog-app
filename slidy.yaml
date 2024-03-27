@@ -1,0 +1,17 @@
+slidy: '1'
+
+scripts:
+  get: flutter pub get
+  clean: flutter clean
+
+  mobx-build: flutter pub run build_runner build --delete-conflicting-outputs
+  mobx-watch: flutter pub run build_runner watch --delete-conflicting-outputs
+  mobx-build-clean:
+    description: Deletes the generated files before running build_runner
+    steps:
+      - name: "clean"
+        run: flutter clean
+      - name: "get packages"
+        run: flutter pub get
+      - name: "build runner"
+        run: flutter pub run build_runner build --delete-conflicting-outputs
